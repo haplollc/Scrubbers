@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F5FFD59DBD2DC2D32A6DA56 /* Scrubbers in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDF264971C92CED5A79777 /* Scrubbers */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98D1C9CC87F70F41B9F850A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54E3B994B6403A536FB91E11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 800ADC51E5228482DADA6BA2;
+			remoteInfo = ScrubbersDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		71CA0FC8129D7DCB6DBBB413 /* ScrubbersDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrubbersDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53217CAAE3CA7533629032BB /* ScrubbersDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrubbersDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		50B98D4E12AEB13C8A63D947 /* ScrubbersDemo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScrubbersDemo;
+			sourceTree = "<group>";
+		};
+		470838B60AAB56CDB71F8EF1 /* ScrubbersDemoUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScrubbersDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4E688E4E92638A1B55C970E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F5FFD59DBD2DC2D32A6DA56 /* Scrubbers in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BCBE85F55AD38F2A5834A46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD4FEF91E959C3EF85823E0E = {
+			isa = PBXGroup;
+			children = (
+				50B98D4E12AEB13C8A63D947 /* ScrubbersDemo */,
+				470838B60AAB56CDB71F8EF1 /* ScrubbersDemoUITests */,
+				FEC812E1DC31632440BD487C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FEC812E1DC31632440BD487C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71CA0FC8129D7DCB6DBBB413 /* ScrubbersDemo.app */,
+				53217CAAE3CA7533629032BB /* ScrubbersDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		800ADC51E5228482DADA6BA2 /* ScrubbersDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 307F1104C40BEDCC8E398453 /* Build configuration list for PBXNativeTarget "ScrubbersDemo" */;
+			buildPhases = (
+				D8AAD2D8283A82B11F8CD22A /* Sources */,
+				F4E688E4E92638A1B55C970E /* Frameworks */,
+				CB1856B6E0AA1F66D1615FCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				50B98D4E12AEB13C8A63D947 /* ScrubbersDemo */,
+			);
+			name = ScrubbersDemo;
+			packageProductDependencies = (
+				B2EDF264971C92CED5A79777 /* Scrubbers */,
+			);
+			productName = ScrubbersDemo;
+			productReference = 71CA0FC8129D7DCB6DBBB413 /* ScrubbersDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		815C8DEDC7B342F093CE62CF /* ScrubbersDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C1E07DF42ABF087E5E5F584 /* Build configuration list for PBXNativeTarget "ScrubbersDemoUITests" */;
+			buildPhases = (
+				81006AF819C55D89FF93E5B7 /* Sources */,
+				9BCBE85F55AD38F2A5834A46 /* Frameworks */,
+				FDA29E13B8F754D8E58181D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C23A95AFCE6A7098D9FD5955 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				470838B60AAB56CDB71F8EF1 /* ScrubbersDemoUITests */,
+			);
+			name = ScrubbersDemoUITests;
+			packageProductDependencies = (
+			);
+			productName = ScrubbersDemoUITests;
+			productReference = 53217CAAE3CA7533629032BB /* ScrubbersDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54E3B994B6403A536FB91E11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					800ADC51E5228482DADA6BA2 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					815C8DEDC7B342F093CE62CF = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 800ADC51E5228482DADA6BA2;
+					};
+				};
+			};
+			buildConfigurationList = 72A676EBDEBD11FD220E587D /* Build configuration list for PBXProject "ScrubbersDemo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD4FEF91E959C3EF85823E0E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				17A3F6F3932C399ABF25F785 /* XCLocalSwiftPackageReference ".." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FEC812E1DC31632440BD487C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				800ADC51E5228482DADA6BA2 /* ScrubbersDemo */,
+				815C8DEDC7B342F093CE62CF /* ScrubbersDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB1856B6E0AA1F66D1615FCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA29E13B8F754D8E58181D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8AAD2D8283A82B11F8CD22A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81006AF819C55D89FF93E5B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C23A95AFCE6A7098D9FD5955 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 800ADC51E5228482DADA6BA2 /* ScrubbersDemo */;
+			targetProxy = 98D1C9CC87F70F41B9F850A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0509BB6314C4D994A89D4F9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				SDKROOT = iphoneos;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6385EA0B243C36D8D73A234D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				SDKROOT = iphoneos;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C3FCA774F49DD79D01EBA25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Scrubbers;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haplo.ScrubbersDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1DFA893AAC6691FA59ADFC46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Scrubbers;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haplo.ScrubbersDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		398C54CE21A039683C31E571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haplo.ScrubbersDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ScrubbersDemo;
+			};
+			name = Debug;
+		};
+		2F4A0076EB7BDEDE7CCA8983 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haplo.ScrubbersDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ScrubbersDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72A676EBDEBD11FD220E587D /* Build configuration list for PBXProject "ScrubbersDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0509BB6314C4D994A89D4F9A /* Debug */,
+				6385EA0B243C36D8D73A234D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		307F1104C40BEDCC8E398453 /* Build configuration list for PBXNativeTarget "ScrubbersDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C3FCA774F49DD79D01EBA25 /* Debug */,
+				1DFA893AAC6691FA59ADFC46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C1E07DF42ABF087E5E5F584 /* Build configuration list for PBXNativeTarget "ScrubbersDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				398C54CE21A039683C31E571 /* Debug */,
+				2F4A0076EB7BDEDE7CCA8983 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		17A3F6F3932C399ABF25F785 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2EDF264971C92CED5A79777 /* Scrubbers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Scrubbers;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 54E3B994B6403A536FB91E11 /* Project object */;
+}
