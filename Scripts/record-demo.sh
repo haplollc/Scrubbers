@@ -1,8 +1,8 @@
 #!/bin/zsh
 # Records the demo app's scripted walk through every style on an iPhone Pro
 # Max simulator and renders the video in assets/demo.mp4: the 9:16 band the
-# stage confines itself to, at 1080 x 1920 and 60 fps, with a click laid on
-# every haptic tick (simulator recordings are silent).
+# stage confines itself to, at 1080 x 1920 and 60 fps, scored by sound.py from
+# the haptic ticks and moments the stage logs (simulator recordings are silent).
 #
 # usage: Scripts/record-demo.sh [simulator name or UDID]
 # PACE=3 records everything three times slower and speeds it back up, for a
@@ -48,12 +48,14 @@ kill -INT $REC; wait $REC 2>/dev/null || true
 read W H <<< $(ffprobe -v error -select_streams v -show_entries stream=width,height -of csv=p=0:s=' ' "$RAW")
 SCALE=$(( W / 440 ))
 BAND=$(( W * 16 / 9 / 2 * 2 )); TOP=$(( (H - BAND) / 2 ))
-# Start on the stage's first steady frame: its tick barcode's black frame.
+# Start on the stage's first steady frame: its tick barcode's black frame
+# (24 squares of 13 pt on a 4 pt frame, centred, (H - band) / 4 above the bottom).
 TRIM=$(python3 - "$RAW" $SCALE $W $H <<'PY'
 import subprocess, sys
 raw, s, w, h = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
-x = int(((w / s - 328) / 2 + 1.5) * s)
-y = int((h / s - (h / s - w / s * 16 / 9) / 4 - 14) * s)
+wp, hp = w / s, h / s
+x = int(((wp - 320) / 2 + 1.5) * s)
+y = int((hp - (hp - wp * 16 / 9) / 4 - 21 + 10.5) * s)
 out = subprocess.run(["ffmpeg", "-v", "error", "-i", raw, "-vf", f"fps=30,crop=2:2:{x}:{y},format=gray",
                       "-f", "rawvideo", "-"], capture_output=True).stdout
 print(next((f / 30 + 0.45 for f in range(len(out) // 4) if out[f * 4] < 60), 0))
@@ -64,4 +66,4 @@ PY
 ffmpeg -v error -y -ss "$TRIM" -i "$RAW" \
   -vf "setpts=(PTS-STARTPTS)/$PACE,fps=60,crop=$W:$BAND:0:$TOP,scale=1080:1920:flags=lanczos,tpad=stop_mode=clone:stop_duration=1.6,format=yuv420p" \
   -c:v libx264 -preset slow -crf 17 -movflags +faststart -an "$WORK/demo-silent.mp4"
-python3 Scripts/ticks.py "$RAW" "$WORK/demo-silent.mp4" assets/demo.mp4 --scale $SCALE --trim "$TRIM" --speed "$PACE" --fps 120
+python3 Scripts/sound.py "$RAW" "$WORK/demo-silent.mp4" assets/demo.mp4 --scale $SCALE --trim "$TRIM" --speed "$PACE" --fps 120

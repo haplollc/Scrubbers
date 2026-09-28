@@ -225,7 +225,7 @@ Open `Demo/ScrubbersDemo.xcodeproj` to play with every style in a gallery. The m
 ```bash
 Scripts/render-media.sh            # every style's GIF, light and dark
 Scripts/banner.py                  # the banner, from those recordings
-Scripts/record-demo.sh             # the demo video, with a click on every haptic tick
+Scripts/record-demo.sh             # the demo video, scored from every haptic tick (sound.py)
 Scripts/readme_tables.py           # the style table and credits, from one list
 ```
 

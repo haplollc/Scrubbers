@@ -115,7 +115,9 @@ struct DemoStage: View {
     private func run() async {
         ScrubberTime.rate = 1 / Self.pace
         ScrubberTelemetry.shared.isRecording = true
-        ScrubberTelemetry.shared.onTick = { tick in ticks.record(tick) }
+        ScrubberTelemetry.shared.onTick = { tick in
+            ticks.note(tick.kind.rawValue, style: styleIndex, place: fraction(of: examples[active]))
+        }
         guard await pause(0.8) else { return }
         for (index, example) in examples.enumerated() {
             if index > 0 {
@@ -125,10 +127,18 @@ struct DemoStage: View {
             }
             guard let finger = puppets[example.style] else { continue }
             let at = fraction(of: example)
-            guard await DemoWalk.play(example.style, finger, from: at, current: { fraction(of: example) }) else { return }
+            guard await DemoWalk.play(example.style, finger, from: at, current: { fraction(of: example) },
+                                      cue: { kind in
+                                          ticks.note(kind.rawValue, style: styleIndex, place: fraction(of: example))
+                                      }) else { return }
         }
         _ = await pause(2.2)
         ScrubberTelemetry.shared.isRecording = false
+    }
+
+    /// The active style's place in `ScrubberStyle.allCases`.
+    private var styleIndex: Int {
+        ScrubberStyle.allCases.firstIndex(of: examples[active].style) ?? 0
     }
 
     private func fraction(of example: ScrubberExample) -> Double {
@@ -172,127 +182,136 @@ enum DemoWalk {
     /// false if cancelled.
     @MainActor
     static func play(_ style: ScrubberStyle, _ p: ScrubberPuppet, from start: Double,
-                     current: @MainActor () -> Double) async -> Bool {
+                     current: @MainActor () -> Double,
+                     cue: @MainActor (TickCode.Kind) -> Void = { _ in }) async -> Bool {
         func go(_ to: Double, _ seconds: Double, _ curve: ScrubberPuppet.Curve = .easeInOut) async -> Bool {
             await p.glide(to: to, over: seconds, curve: curve)
         }
         func wait(_ seconds: Double) async -> Bool { await p.hold(seconds) }
+        // The finger's presses and lifts are cues for the soundtrack too.
+        func press(at fraction: Double) { p.press(at: fraction); cue(.press) }
+        func release(flick: Double = 0) { p.release(flick: flick); cue(.release) }
 
         switch style {
         case .ruler:
-            p.press(at: start)
+            press(at: start)
             guard await go(0.08, 0.6), await go(0.95, 0.8), await go(0.63, 0.4) else { return false }
-            p.release()
+            release()
             return await wait(0.35)
 
         case .glass:
-            p.press(at: start)
+            press(at: start)
             guard await wait(0.3), await go(0.9, 0.5), await go(0.25, 0.55), await go(0.55, 0.35) else { return false }
-            p.release()
+            release()
             return await wait(0.45)
 
         case .jelly:
-            p.press(at: start)
+            press(at: start)
             guard await go(0.97, 0.35), await wait(0.1), await go(0.3, 0.24, .easeOut), await wait(0.85),
                   await go(0.78, 0.45) else { return false }
-            p.release()
+            release()
             return await wait(0.3)
 
         case .elastic:
-            p.press(at: start)
+            press(at: start)
             guard await go(-0.4, 0.6), await wait(0.1), await go(1.45, 0.85), await wait(0.1) else { return false }
-            p.release()
+            release()
             return await wait(0.55)
 
         case .fluid:
-            p.press(at: start)
+            press(at: start)
             guard await wait(0.3), await go(0.85, 0.55), await go(0.25, 0.6), await go(0.6, 0.35) else { return false }
-            p.release()
+            release()
             return await wait(0.45)
 
         case .squiggle:
             guard await wait(0.45) else { return false }
-            p.press(at: start)
+            press(at: start)
             guard await wait(0.2), await go(0.82, 0.6) else { return false }
-            p.release()
+            release()
             return await wait(0.85)
 
         case .thermostat:
-            p.press(at: start)
+            press(at: start)
             guard await go(0.9, 0.7), await wait(0.2), await go(0.1, 0.85), await wait(0.2),
                   await go(0.48, 0.45) else { return false }
-            p.release()
+            release()
             return await wait(0.25)
 
         case .swing:
-            p.press(at: start)
+            press(at: start)
             guard await wait(0.15), await go(0.86, 0.45, .easeIn), await wait(0.7),
                   await go(0.3, 0.4, .easeIn) else { return false }
-            p.release()
+            release()
             return await wait(0.6)
 
         case .mood:
-            p.press(at: start)
+            press(at: start)
             guard await go(0.02, 0.7), await wait(0.25), await go(0.98, 1.0), await wait(0.25),
                   await go(0.7, 0.35) else { return false }
-            p.release()
+            release()
             return await wait(0.2)
 
         case .tape:
-            p.press(at: start)
+            press(at: start)
             guard await go(start - 0.1, 0.28, .easeIn) else { return false }
-            p.release(flick: -0.55)
+            release(flick: -0.55)
             guard await wait(0.9) else { return false }
             let here = current()
-            p.press(at: here)
+            press(at: here)
             guard await go(here + 0.12, 0.28, .easeIn) else { return false }
-            p.release(flick: 0.5)
+            release(flick: 0.5)
             return await wait(0.9)
 
         case .effort:
-            p.press(at: start)
+            press(at: start)
             guard await go(0.02, 0.5), await wait(0.1), await go(1.0, 1.0), await wait(0.15),
                   await go(0.62, 0.35) else { return false }
-            p.release()
+            release()
             return await wait(0.3)
 
         case .emoji:
-            p.press(at: start)
+            press(at: start)
             guard await go(0.04, 0.5), await go(0.96, 0.8), await wait(0.15) else { return false }
-            p.release()
+            release()
             return await wait(1.1)
         }
     }
 }
 
 /// Every tick, written as a barcode a script can read back out of the
-/// recording: ten bits of running count, two of kind (tick, knock or burst),
-/// four of the mark it landed on.
+/// recording: ten bits of running count, three of kind (tick, knock, burst,
+/// press, release), four of the style on stage and four of where its value
+/// was (0 at the low end to 15 at the high), so the soundtrack can be scored
+/// per style and pitched by position.
 struct TickCode {
+    enum Kind: Int { case tick = 1, knock, burst, press, release }
+
     private(set) var count = 0
     private(set) var kind = 0
-    private(set) var mark = 0
+    private(set) var style = 0
+    private(set) var place = 0
 
-    mutating func record(_ tick: ScrubberTelemetry.Tick) {
+    mutating func note(_ kind: Int, style: Int, place: Double) {
         count = (count + 1) % 1024
-        kind = tick.kind.rawValue
-        mark = tick.mark & 15
+        self.kind = kind
+        self.style = style & 15
+        self.place = min(max(Int(place * 16), 0), 15)
     }
 
     var bits: [Bool] {
-        (0..<10).map { count >> (9 - $0) & 1 == 1 }
-            + (0..<2).map { kind >> (1 - $0) & 1 == 1 }
-            + (0..<4).map { mark >> (3 - $0) & 1 == 1 }
+        func field(_ value: Int, _ width: Int) -> [Bool] { (0..<width).map { value >> (width - 1 - $0) & 1 == 1 } }
+        return field(count, 10) + field(kind, 3) + field(style, 4) + field(place, 4) + field(0, 3)
     }
 
-    /// Sixteen squares, black for one, white for zero, on a black frame so
-    /// the reader can find them.
+    /// Twenty-four squares, black for one, white for zero, on a black frame
+    /// so the reader can find them.
     var barcode: some View {
         HStack(spacing: 0) {
             ForEach(Array(bits.enumerated()), id: \.offset) { _, bit in
                 Rectangle()
                     .fill(bit ? Color.black : Color.white)
-                    .frame(width: 20, height: 20)
+                    .frame(width: 13, height: 13)
             }
         }
         .padding(4)
