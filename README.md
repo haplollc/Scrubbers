@@ -18,6 +18,7 @@
   <img src="https://img.shields.io/badge/iOS-17+-000000?logo=apple&logoColor=white" alt="iOS 17+" />
   <img src="https://img.shields.io/badge/SPM-compatible-brightgreen" alt="Swift Package Manager" />
   <img src="https://img.shields.io/badge/License-MIT-blue" alt="MIT License" />
+  <a href="https://buymeacoffee.com/jcbuilds"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black" alt="Buy Me a Coffee" /></a>
 </p>
 
 ---
