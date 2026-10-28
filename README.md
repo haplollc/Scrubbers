@@ -1,3 +1,6 @@
+# Scrubbers
+Twelve sliders you will want to touch, for SwiftUI: one view, one enum, one line to drop in.
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.gif">
@@ -5,19 +8,13 @@
   </picture>
 </p>
 
-<h1 align="center">Scrubbers</h1>
-
-<p align="center">
-  Twelve sliders you'll want to touch, for SwiftUI.<br />
-  One view, one enum, one line to drop in.
-</p>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white" alt="Swift 6" />
   <img src="https://img.shields.io/badge/Xcode-26+-147EFB?logo=xcode&logoColor=white" alt="Xcode 26+" />
   <img src="https://img.shields.io/badge/iOS-17+-000000?logo=apple&logoColor=white" alt="iOS 17+" />
   <img src="https://img.shields.io/badge/SPM-compatible-brightgreen" alt="Swift Package Manager" />
-  <img src="https://img.shields.io/badge/License-MIT-blue" alt="MIT License" />
+  [![GitHub stars](https://img.shields.io/github/stars/haplollc/Scrubbers?style=flat)](https://github.com/haplollc/Scrubbers/stargazers)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 </p>
 
 <p align="center">
@@ -26,11 +23,33 @@
   <sub>If Scrubbers is useful to you, a coffee keeps it going.</sub>
 </p>
 
----
+**Install**
 
 ```swift
-Scrubber(.jelly, value: $value)
+dependencies: [
+    .package(url: "https://github.com/haplollc/Scrubbers", from: "1.0.0")
+]
 ```
+
+**Try it**
+
+```swift
+import SwiftUI
+import Scrubbers
+
+struct VolumeRow: View {
+    @State private var volume = 0.6
+
+    var body: some View {
+        Scrubber(.elastic, value: $volume)
+            .scrubberIcons(low: "speaker.fill", high: "speaker.wave.3.fill")
+    }
+}
+```
+
+If this is useful, a star helps others find it.
+
+---
 
 That is the whole integration. Swap `.jelly` for any of the twelve styles below. Each one is its own control with its own feel under the finger, not a skin on one slider: jelly that buckles when you push it, a pill that turns into a lens, a bead that pops out on a gooey neck, a thermostat you turn round its ring. They all take the same value, range and step, tick a light haptic at each detent, read to VoiceOver as a standard slider, and follow your `.tint`.
 
@@ -283,3 +302,19 @@ No artwork, code or assets from these projects are included; every style is draw
 Scrubbers is available under the [MIT license](LICENSE).
 
 Made by [Haplo LLC](https://haploapp.com).
+---
+
+## More from Haplo
+
+More open source from [Haplo](https://github.com/haplollc), built by the same solo developer:
+
+- [ThinkingOrbs](https://github.com/haplollc/ThinkingOrbs): dotted, honestly-3D loading indicators for AI and agent interfaces in SwiftUI. Nine hand-tuned designs, two tuned sizes.
+- [Minted](https://github.com/haplollc/Minted): turn any SVG into a physically-lit 3D gold medallion for SwiftUI.
+- [Vesalius](https://github.com/haplollc/Vesalius): a map of your codebase for Claude Code, an on-device code graph with an MCP server, a CLI, a Mac app and a VS Code extension.
+- [MuscleMapKit](https://github.com/haplollc/MuscleMapKit): interactive 3D muscle map for iOS. Shade muscles by how hard they were worked, spin the body, tap a group.
+- [ProcessingField](https://github.com/haplollc/ProcessingField): a SwiftUI progress field, a grid of marks whose sizes describe one soft shape that drifts, folds and breathes while your app is busy.
+- [Gepetto](https://github.com/haplollc/Gepetto): a browser agent for iOS and macOS that a person can take over at any time. Real WKWebView, small on-device models, a native SwiftUI panel.
+- [ClayGlobe](https://github.com/haplollc/ClayGlobe): a claymorphic 3D globe for SwiftUI that plants a waving flag on every country you visit.
+- [Mirage](https://github.com/haplollc/Mirage): one-stop on-device diffusion image-generation engine for iOS / macOS / visionOS.
+- [SiriGlass](https://github.com/haplollc/SiriGlass): the Siri drop from iOS 27, for SwiftUI. Liquid Glass that pours out of the Dynamic Island and lights up with your voice.
+- [KoiPond](https://github.com/haplollc/KoiPond): a living koi pond for SwiftUI. Koi glide over any view, lily pads drift on top, and a Metal shader ripples and refracts it all.
