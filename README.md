@@ -51,7 +51,7 @@ If this is useful, a star helps others find it.
 
 ---
 
-That is the whole integration. Swap `.jelly` for any of the twelve styles below. Each one is its own control with its own feel under the finger, not a skin on one slider: jelly that buckles when you push it, a pill that turns into a lens, a bead that pops out on a gooey neck, a thermostat you turn round its ring. They all take the same value, range and step, tick a light haptic at each detent, read to VoiceOver as a standard slider, and follow your `.tint`.
+That is the whole integration. Swap `.elastic` for any of the twelve styles below. Each one is its own control with its own feel under the finger, not a skin on one slider: jelly that buckles when you push it, a pill that turns into a lens, a bead that pops out on a gooey neck, a thermostat you turn round its ring. They all take the same value, range and step, tick a light haptic at each detent, read to VoiceOver as a standard slider, and follow your `.tint`.
 
 It started as the ruler under [iOS Eras](https://github.com/haplollc/ios-eras), pulled out into its own component. The other eleven recreate some of the best-loved sliders from Apple, Google, Nest, Instagram and the design community.
 
