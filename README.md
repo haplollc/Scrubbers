@@ -302,6 +302,7 @@ No artwork, code or assets from these projects are included; every style is draw
 Scrubbers is available under the [MIT license](LICENSE).
 
 Made by [Haplo LLC](https://haploapp.com).
+
 ---
 
 ## More from Haplo
